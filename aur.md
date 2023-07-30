@@ -7,3 +7,4 @@ My must-have libraries to install in AUR
 - better-discord-installer
 - [spotify-adblock](https://github.com/abba23/spotify-adblock) (Sorry I'm a degenerate)
 - tilix
+- github-cli-git (which needs openssh)
