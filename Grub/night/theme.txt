@@ -1,0 +1,72 @@
+# GRUB2 gfxmenu Linux theme
+# Designed for any resolution
+
+# Global Property
+title-text: ""
+desktop-image: "background.jpg"
+desktop-color: "#000000"
+terminal-font: "Terminus Regular 14"
+terminal-box: "terminal_box_*.png"
+terminal-left: "0"
+terminal-top: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+terminal-border: "0"
+
+# Show the boot menu
++ boot_menu {
+  left = 6%
+  top = 30%
+  width = 35%
+  height = 60%
+  item_font = "DejaVu Sans Regular 24"
+  item_color = "#FFFFFF"
+  selected_item_color = "#82EFEE"
+  icon_width = 48
+  icon_height = 48
+  item_icon_space = 20
+  item_height = 64
+  item_padding = 12
+  item_spacing = 12
+  selected_item_pixmap_style = "select_*.png"
+  menu_pixmap_style = "boot_menu_*.png"
+}
+
+# Show a countdown message using the label component
++ label {
+  top = 82%
+  left = 8%
+  width = 30%
+  align = "center"
+  id = "__timeout__"
+  text = "Booting in %d seconds"
+  color = "#FFFFFF"
+  font = "DejaVu Sans Regular 16"
+}
+
++ label {
+  top = 24%
+  left = 8%
+  width = 30%
+  align = "center"
+  id = "__timeout__"
+  text = "Welcome to Shen Yien's Land"
+  color = "#FFFFFF"
+  font = "DejaVu Sans Regular 24"
+}
+
+# Show a styled horizontal progress bar
++ progress_bar {
+  id = "__timeout__"
+  left = 8%
+  width = 30%
+  top = 84%+7
+  height = 31
+  show_text = false
+  font = "DejaVuSans 20"
+  text_color = "#FFFFFF"
+  text = ""
+  bar_style = "progress_bar_*.png"
+  highlight_style = "progress_highlight_*.png"
+}
+
