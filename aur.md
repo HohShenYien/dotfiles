@@ -8,3 +8,4 @@ My must-have libraries to install in AUR
 - [spotify-adblock](https://github.com/abba23/spotify-adblock) (Sorry I'm a degenerate)
 - tilix
 - github-cli-git (which needs openssh)
+- tlp (to manage battery life, tlpui for ui)
