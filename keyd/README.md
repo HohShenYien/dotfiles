@@ -5,6 +5,8 @@ A custom keyboard remaps based on my AHK file from Windows, it does the followin
 - Remap ALT + ijkl into arrow keys (like wasd but on the right side)
 - Remap ALT + h to home
 - Remap ALT + ; to end
+- ALT + x to backspace
+- ALT + z to ENTER
 - ALT will be ALT + 1 instead, because some apps act weirdly with ALT
 
 Basically simplifying my life.
