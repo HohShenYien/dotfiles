@@ -77,7 +77,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -108,7 +108,39 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias yay="paru"
-alias ls="exa --icons"
+alias ls="eza --icons=always"
+alias grub-update="grub-mkconfig -o /boot/grub/grub.cfg"
+
+# Custom Functions
+function cd() {
+  z "$@"
+
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+    ## If venv folder is found then activate the vitualenv
+      if [[ -d ./venv ]] ; then
+        source ./venv/bin/activate
+      fi
+      if [[ -d ./.venv ]] ; then
+        source ./.venv/bin/activate
+      fi
+  else
+    ## check the current folder belong to earlier VIRTUAL_ENV folder
+    # if yes then do nothing
+    # else deactivate
+      parentdir="$(dirname "$VIRTUAL_ENV")"
+      if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+        deactivate
+      fi
+  fi
+}
+
+# Environmental variables
+export PATH="/opt/flutter/bin:$PATH"
+export PATH="/home/shenyien/Android/Sdk/platform-tools:$PATH"
+export PATH="/home/shenyien/.local/bin:$PATH"
+export DJANGO_READ_DOT_ENV_FILE=True
+export ANDROID_HOME="/home/shenyien/Android/Sdk"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Additional plugins
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
@@ -120,3 +152,21 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 source /usr/share/nvm/init-nvm.sh
+
+eval "$(direnv hook zsh)"
+
+eval "$(zoxide init zsh)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export PATH=$PATH:/home/shenyien/.spicetify
+
+# pnpm
+export PNPM_HOME="/home/shenyien/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
