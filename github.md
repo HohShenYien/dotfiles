@@ -1,9 +1,4 @@
-## Authenticating GitHub with SSH keys
+## Authenticating GitHub
 
-- Basically just create SSH keys following tutorials on [GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-- Adding it to GitHub
-- Add this line to `.bashrc`
-  ```bash
-  # To make GPG work
-  export GPG_TTY=$(tty)
-  ```
+- Install `github-cli` package with aur, and run `gh auth login`
+
